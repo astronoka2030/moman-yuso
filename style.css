@@ -94,10 +94,20 @@ select:focus, input:focus, button:focus-visible { outline: 2px solid var(--gold-
 .reward-value { display: block; margin-top: 2px; color: var(--text); font-size: .98rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .table-panel { margin: 14px 20px 22px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .table-scroll { overflow: auto; max-height: 68vh; }
-table { width: 100%; min-width: 900px; border-collapse: separate; border-spacing: 0; text-align: center; font-size: .82rem; font-variant-numeric: tabular-nums; }
-th, td { padding: 11px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-th { position: sticky; top: 0; z-index: 2; color: var(--gold-light); background: #332719; font-size: .76rem; }
-td { color: var(--text); background: #241c13; }
+table { width: 100%; min-width: 720px; border-collapse: separate; border-spacing: 0; text-align: center; font-size: .82rem; font-variant-numeric: tabular-nums; }
+th, td { padding: 12px 10px; border-bottom: 1px solid var(--line); }
+th { 
+  position: sticky; top: 0; z-index: 2; color: var(--gold-light); background: #332719; font-size: .75rem; 
+  /* ▼ ここを変更：文字が縦に縮まないようにし、適度に折り返せるように設定 */
+  white-space: normal; 
+  word-break: break-all;
+  line-height: 1.35;
+  min-width: 70px;
+}
+/* 特に「伝説名士の欠片」の列は少し幅を持たせて綺麗に改行させる */
+th:nth-child(5) { min-width: 95px; }
+
+td { color: var(--text); background: #241c13; white-space: nowrap; }
 tbody tr:nth-child(even) td { background: #2a2016; }
 tbody tr:hover td { background: #3a2c1b; }
 tbody tr:last-child td { border-bottom: 0; }
@@ -121,7 +131,8 @@ footer { display: flex; justify-content: space-between; gap: 12px; padding: 14px
   .reward-card { padding: 13px; }
   .power-value { font-size: 1.48rem; }
   .table-panel { margin: 12px; }
-  /* スマホの一覧表示ではLv.列を左端に固定 */
+  
+  /* スマホの一覧表示でLv.列を左端に固定しつつ、見出しが縦に潰れないように調整 */
   #table-view .table-scroll table th:first-child,
   #table-view .table-scroll table td:first-child {
     position: sticky;
@@ -146,7 +157,7 @@ footer { display: flex; justify-content: space-between; gap: 12px; padding: 14px
     background: #3a2c1b;
   }
   table { font-size: .78rem; }
-  th, td { padding: 10px 9px; }
+  th, td { padding: 10px 8px; }
   footer { padding: 12px; font-size: .58rem; }
 }
 @media (min-width: 641px) and (max-width: 850px) {
