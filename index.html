@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17130e">
+  <meta name="description" content="輸送部隊のレベル別戦力値・報酬一覧。兵種やレベルで検索できます。">
+  <title>輸送部隊 レベル別報酬一覧</title>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Z9NHRJ19"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Z9NHRJ19');
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="eyebrow">GAME DATA ARCHIVE</div>
+      <h1>輸送部隊 <span>レベル別報酬一覧</span></h1>
+      <p>レベルごとの戦力値と獲得報酬をチェック</p>
+      <div class="hero-rule"><span></span></div>
+    </header>
+
+    <section class="toolbar" aria-label="表示設定">
+      <div class="filter-block">
+        <label class="control-label" for="troop-filter">兵種</label>
+        <select id="troop-filter">
+          <option value="all">すべて</option>
+          <option value="槍">槍</option>
+          <option value="弓">弓</option>
+          <option value="盾">盾</option>
+          <option value="騎">騎</option>
+        </select>
+      </div>
+      <div class="filter-block search-block">
+        <label class="control-label" for="level-search">レベル検索</label>
+        <div class="search-wrap">
+          <input id="level-search" type="number" inputmode="numeric" min="1" max="44" placeholder="例：30">
+          <span>Lv.</span>
+        </div>
+      </div>
+      <div class="view-switch" role="group" aria-label="表示形式">
+        <button type="button" class="view-button active" data-view="cards" aria-pressed="true">カード</button>
+        <button type="button" class="view-button" data-view="table" aria-pressed="false">一覧</button>
+      </div>
+    </section>
+
+    <div class="result-line">
+      <span id="result-count">44件表示</span>
+      <button type="button" id="reset-button" class="reset-button">条件をリセット</button>
+    </div>
+
+    <section id="cards-view" class="cards-grid" aria-label="報酬カード"></section>
+
+    <section id="table-view" class="table-panel" hidden aria-label="報酬一覧">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Lv.</th><th>戦力値</th><th>兵種</th><th>龍甲片</th>
+              <th>伝説名士の欠片</th><th>虎杢</th><th>賢才召募札</th>
+              <th>捕獲縄</th><th>精研の巻物</th><th>資源札</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+    <p id="empty-state" class="empty-state" hidden>該当するデータがありません。検索条件を変更してください。</p>
+
+    <footer>
+      <span>TRANSPORT UNIT DATA</span>
+      <span>LEVEL 1 — 44</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
