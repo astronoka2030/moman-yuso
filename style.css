@@ -96,7 +96,6 @@ select:focus, input:focus, button:focus-visible { outline: 2px solid var(--gold-
 .table-panel { margin: 14px 20px 22px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .table-scroll { overflow: auto; max-height: 68vh; }
 
-/* ▼ ここで全体のコンパクトな幅をギュッと維持 */
 table { 
   width: auto; 
   min-width: 0; 
@@ -108,21 +107,28 @@ table {
 }
 
 th, td { 
-  padding: 10px 8px; 
+  padding: 10px 6px; 
   border-bottom: 1px solid var(--line); 
 }
 
 th { 
-  position: sticky; top: 0; z-index: 2; color: var(--gold-light); background: #332719; font-size: .72rem; 
-  white-space: normal; 
-  word-break: break-all;
+  position: sticky; top: 0; z-index: 2; color: var(--gold-light); background: #332719; font-size: .7rem; 
   line-height: 1.3;
-  min-width: 52px;
+  /* ▼ 各列を程よく狭くしつつ、不自然な1文字縦書きを防ぐための幅設定 */
+  white-space: normal;
 }
-/* 長い見出しの列にだけ最小幅を持たせて潰れないようにする */
-th:nth-child(1) { min-width: 50px; }
-th:nth-child(2) { min-width: 65px; }
-th:nth-child(4) { min-width: 75px; } /* 伝説名士の欠片 */
+
+/* 各列の幅をきめ細かく調整して、綺麗な2行折り返しにする */
+th:nth-child(1) { width: 52px; min-width: 52px; } /* Lv. */
+th:nth-child(2) { width: 68px; min-width: 68px; } /* 戦力値 */
+th:nth-child(3) { width: 50px; min-width: 50px; } /* 兵種 */
+th:nth-child(4) { width: 52px; min-width: 52px; } /* 龍甲片 */
+th:nth-child(5) { width: 78px; min-width: 78px; } /* 伝説名士の欠片 */
+th:nth-child(6) { width: 44px; min-width: 44px; } /* 虎杢 */
+th:nth-child(7) { width: 60px; min-width: 60px; } /* 賢才召募札 */
+th:nth-child(8) { width: 50px; min-width: 50px; } /* 捕獲縄 */
+th:nth-child(9) { width: 60px; min-width: 60px; } /* 精研の巻物 */
+th:nth-child(10){ width: 55px; min-width: 55px; } /* 資源札 */
 
 td { color: var(--text); background: #241c13; white-space: nowrap; }
 tbody tr:nth-child(even) td { background: #2a2016; }
@@ -154,6 +160,7 @@ footer { display: flex; justify-content: space-between; gap: 12px; padding: 14px
   #table-view .table-scroll table td:first-child {
     position: sticky;
     left: 0;
+    width: 50px;
     min-width: 50px;
     z-index: 3;
     border-right: 1px solid rgba(216,180,92,.38);
@@ -174,7 +181,7 @@ footer { display: flex; justify-content: space-between; gap: 12px; padding: 14px
     background: #3a2c1b;
   }
   table { font-size: .75rem; }
-  th, td { padding: 9px 7px; }
+  th, td { padding: 9px 5px; }
   footer { padding: 12px; font-size: .58rem; }
 }
 @media (min-width: 641px) and (max-width: 850px) {
