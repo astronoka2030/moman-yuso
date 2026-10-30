@@ -121,6 +121,30 @@ footer { display: flex; justify-content: space-between; gap: 12px; padding: 14px
   .reward-card { padding: 13px; }
   .power-value { font-size: 1.48rem; }
   .table-panel { margin: 12px; }
+  /* スマホの一覧表示ではLv.列を左端に固定 */
+  #table-view .table-scroll table th:first-child,
+  #table-view .table-scroll table td:first-child {
+    position: sticky;
+    left: 0;
+    min-width: 56px;
+    z-index: 3;
+    border-right: 1px solid rgba(216,180,92,.38);
+    box-shadow: 5px 0 8px rgba(0,0,0,.22);
+  }
+  #table-view .table-scroll table th:first-child {
+    top: 0;
+    z-index: 4;
+    background: #332719;
+  }
+  #table-view .table-scroll table tbody tr td:first-child {
+    background: #241c13;
+  }
+  #table-view .table-scroll table tbody tr:nth-child(even) td:first-child {
+    background: #2a2016;
+  }
+  #table-view .table-scroll table tbody tr:hover td:first-child {
+    background: #3a2c1b;
+  }
   table { font-size: .78rem; }
   th, td { padding: 10px 9px; }
   footer { padding: 12px; font-size: .58rem; }
