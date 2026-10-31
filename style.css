@@ -35,7 +35,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* ▼ ヘッダー（ネイビー基調の清潔感あるデザイン） */
+/* ヘッダー */
 .hero {
   text-align: center;
   padding: 20px 16px 16px;
@@ -50,7 +50,7 @@ h1 {
   font-size: clamp(1.35rem, 3.5vw, 1.85rem); 
   line-height: 1.3; 
 }
-h1 span { display: inline; color: #f1c40f; } /* タイトルの一部をアクセントのゴールドに */
+h1 span { display: inline; color: #f1c40f; }
 
 .hero p { 
   margin: 0; 
@@ -116,12 +116,12 @@ select:focus, input:focus, button:focus-visible { outline: 2px solid var(--accen
 
 .level-label { color: var(--primary-navy); font-weight: 800; font-size: 1.05rem; }
 
-/* 兵種タグの色（ライト調に合わせた綺麗で落ち着いたゲーム準拠カラー） */
+/* 兵種タグの色 */
 .troop-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 38px; padding: 3px 8px; border-radius: 6px; color: #fff; font-size: .78rem; font-weight: 800; }
-.troop-槍 { background: #d97706; color: #fff; } /* 槍：ゴールド・黄系 */
-.troop-弓 { background: #0284c7; color: #fff; } /* 弓：ブルー系 */
-.troop-盾 { background: #16a34a; color: #fff; } /* 盾：グリーン系 */
-.troop-騎 { background: #dc2626; color: #fff; } /* 騎：レッド系 */
+.troop-槍 { background: #d97706; color: #fff; }
+.troop-弓 { background: #0284c7; color: #fff; }
+.troop-盾 { background: #16a34a; color: #fff; }
+.troop-騎 { background: #dc2626; color: #fff; }
 
 .power-block { padding: 12px 0 10px; }
 .power-caption { display: block; color: var(--muted); font-size: .7rem; }
@@ -132,10 +132,14 @@ select:focus, input:focus, button:focus-visible { outline: 2px solid var(--accen
 .reward-name { display: block; overflow-wrap: anywhere; color: var(--muted); font-size: .68rem; line-height: 1.45; }
 .reward-value { display: block; margin-top: 2px; color: var(--text); font-size: .98rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 
-/* テーブル表示 */
+/* ▼ テーブル表示（横スクロール復活・縦の高さ制限なしでページ全体と一緒にスクロール） */
 .table-panel { margin: 14px 20px 22px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #ffffff; }
-.table-scroll { overflow: visible; max-height: none; } /* ←全体スクロールに変更！ */
-
+.table-scroll { 
+  overflow-x: auto; 
+  overflow-y: visible; 
+  max-height: none; 
+  -webkit-overflow-scrolling: touch; 
+}
 
 table { 
   width: auto; 
