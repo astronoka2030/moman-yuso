@@ -134,7 +134,8 @@ select:focus, input:focus, button:focus-visible { outline: 2px solid var(--accen
 
 /* テーブル表示 */
 .table-panel { margin: 14px 20px 22px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #ffffff; }
-.table-scroll { overflow: auto; max-height: 68vh; }
+.table-scroll { overflow: visible; max-height: none; } /* ←全体スクロールに変更！ */
+
 
 table { 
   width: auto; 
